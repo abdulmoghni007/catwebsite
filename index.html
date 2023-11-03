@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>About Cats</title>
+
+</head>
+
+<style>
+    #catimage {
+        height: 80px;
+        width: 100px;
+        margin-top: -25px;
+    }
+    
+    .Quotes {
+        text-align: center;
+    }
+    
+    .designq {
+        background-color: lightblue;
+    }
+    
+    body {
+        background-color: brown;
+    }
+    
+    #cat-list {
+        background-color: aquamarine;
+    }
+    
+    . {
+        background-color: aquamarine;
+    }
+</style>
+
+
+
+
+<body>
+
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid p-0">
+                <a class="navbar-brand ms-5" href="#"><img src="./cat-nav.png" style="height: 80px; width: 100px; "></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                        <button type="button" class="btn btn-dark me-5" data-bs-toggle="modal" data-bs-target="#myModal">
+            Add Cat
+           </button>
+
+                    </div>
+                </div>
+        </nav>
+        </div>
+        <div id="demo" style="text-align: center;"></div>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="height: 400px;">
+
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Select the Cat</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+
+                    <div class="modal-body">
+                        <table>
+                            <tr>
+                                <td><label for="name">Name:<br><br></label></td>
+                                <td>
+                                    <input type="text" class="cat-name" name=" " id="name"><br><br></td>
+                            </tr>
+                            <tr>
+                                <td><label for="color ">Color:<br><br></label></td>
+                                <td><input type="text " class="cat_color" name=" " id="color "><br><br></td>
+                            </tr>
+                            <tr>
+                                <td><label for="breed ">Breed:<br><br></label></td>
+
+                                <td>
+                                    <input type="text " class="cat-breed" name=" " id="breed "><br><br></td>
+                            </tr>
+                            <tr>
+                                <td><label for="img ">Image:<br><br></label></td>
+
+                                <td><input type="text " class="cat_img" name=" " id="img "><br><br></td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-success save-changes-button" data-bs-dismiss="modal">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=" Quotes ">
+
+            <div class="designq">
+                <p id="para "></p>
+
+            </div>
+        </div>
+        <script>
+            const url = 'https://quotes15.p.rapidapi.com/quotes/random/';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'bc874df1aamshcab0c9726ec3153p1324b7jsn72c6790c910a',
+                    'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
+                }
+            };
+
+
+
+
+
+            fetch(url, options).then(response => response.json())
+                .then(response => display(response.content))
+                .catch(err => console.error(err));
+
+
+            function display(text) {
+                document.getElementById("para ").innerHTML = text;
+            }
+        </script>
+        <div class="container  mt-5 g-5">
+
+
+
+            <div class="row cat-items d-flex gap-5 mb-4"  id="cat-list">
+
+                <!-- <div class="col-8 col-lg-3 " style="height:300px;box-shadow:5px 4px 3px rgb(230, 228, 228); border-radius:10px; ">
+                    <h3>Name : ${catName} </h3>
+                    <h3>Color : ${catBreed} </h3>
+                    <h3>Breed : ${catColor} </h3>
+                    <img src="${catUrl} " alt="catImage " style="height:150px;width:100%;border-radius:50% ">
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
+    <script src="./Modalwork.js">
+    </script>
+</body>
+
+</html>
